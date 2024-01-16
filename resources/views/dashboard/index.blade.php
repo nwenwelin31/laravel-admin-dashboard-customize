@@ -9,18 +9,17 @@
     <div class="wrapper">
 
         <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
+        {{-- <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo"
                 height="60" width="60">
-        </div>
+        </div> --}}
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
 
             </ul>
@@ -83,12 +82,30 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="{{ route('category.create') }}" class="nav-link">
+                                <i class="nav-icon fas fa-plus"></i>
+                                <p>
+                                    Create Category
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{ route('category.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Widgets
+                                    Category List
+                                    <span class="right badge badge-success">view</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('item.create') }}" class="nav-link">
+                                <i class="nav-icon fas fa-plus"></i>
+                                <p>
+                                    Create Item
                                     <span class="right badge badge-danger">New</span>
                                 </p>
                             </a>
@@ -106,7 +123,10 @@
                     <!-- /.card-header -->
                     <div class="card-body pt-0">
                         <!--The calendar -->
-                        <div id="calendar" style="width: 100%"></div>
+                        <div id="calendar" style="width: 100%">
+                            @yield('content')
+
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -114,10 +134,7 @@
             </section>
             <!-- right col -->
         </div>
-        <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+
     </div>
     <!-- /.content-wrapper -->
     @extends('dashboard.footer')
