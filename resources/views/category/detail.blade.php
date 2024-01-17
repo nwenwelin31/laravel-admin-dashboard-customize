@@ -1,7 +1,7 @@
 @extends('dashboard.index');
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-start">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body shadow btn btn-dark">

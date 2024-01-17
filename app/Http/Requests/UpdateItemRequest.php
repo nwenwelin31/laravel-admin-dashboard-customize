@@ -24,7 +24,7 @@ class UpdateItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
+            'name'=>'required|unique:items,name,'.$this->route('item')->id,
             'price'=>'required',
             'expire_date'=>'required',
             'category_id'=>'required'

@@ -7,16 +7,31 @@
                     <div class="card-body">
                         <table class="table table-striped table-dark">
                             <thead>
-                                <h3 class="text-center">Category List</h3>
-                                {{-- <div class="col-md-1 mb-3">
-                                    <a href="{{ route('category.create') }}" class="btn btn-primary float-end"><i
-                                            class="fa fa-plus-circle"></i></a>
-                                </div> --}}
-                                {{-- @if (session('success'))
-                                    <div class="alert alert-success">
+                                <h3 class="text-center">Item List</h3>
+                                @if (Session::has('success'))
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <i class="fa fa-times"></i>
+                                        </button>
                                         {{ session('success') }}
                                     </div>
-                                @endif --}}
+                                @endif
+                                @if (Session::has('delete'))
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        {{ session('delete') }}
+                                    </div>
+                                @endif
+                                @if (Session::has('update'))
+                                    <div class="alert alert-info alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        {{ session('update') }}
+                                    </div>
+                                @endif
 
                                 <tr>
                                     <th scope="col">ID</th>
@@ -27,10 +42,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $category)
+                                @foreach ($items as $item)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->price }}</td>
+                                        <td>{{ $item->category->name}}</td>
+                                        <td>{{ $item->expire_date }}</td>
+                                        <td>
+                                            <a href="{{ route('item.edit',$item->id) }}" class="btn btn-outline-primary">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            {{-- <a href="{{ route('item.show',$item->id) }}" class="btn btn-outline-primary">
+                                                <i class="fa fa-info"></i>
+                                            </a> --}}
+                                            <form action="{{ route('item.destroy',$item->id) }}" method="post"
+                                                class="d-inline-block">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="" class="btn btn-outline-danger">
+                                                    {{-- onclick="return confirm('Are you sure you want to delete?')" --}}
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
