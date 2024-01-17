@@ -1,7 +1,7 @@
 @extends('dashboard.index');
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-start">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
@@ -53,9 +53,9 @@
                                             <a href="{{ route('item.edit',$item->id) }}" class="btn btn-outline-primary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            {{-- <a href="{{ route('item.show',$item->id) }}" class="btn btn-outline-primary">
+                                            <a href="{{ route('item.show',$item->id) }}" class="btn btn-outline-primary">
                                                 <i class="fa fa-info"></i>
-                                            </a> --}}
+                                            </a>
                                             <form action="{{ route('item.destroy',$item->id) }}" method="post"
                                                 class="d-inline-block">
                                                 @method('delete')

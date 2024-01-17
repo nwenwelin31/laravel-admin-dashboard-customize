@@ -19,7 +19,7 @@
                             </tr>
                             <tr>
                                 <td>Category Type</td>
-                                <td>{{ }}</td>
+                                <td>{{ $item->category->name }}</td>
                             </tr>
                             <tr>
                                 <td>Expire Date</td>
