@@ -5,7 +5,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body shadow bnt btn-dark">
-                        <form action="{{ route('item.store') }}" method="post">
+                        <form action="{{ route('item.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-body">
                                 <h3 class="text-center">Create New Item</h3>
@@ -45,6 +45,14 @@
                                     <input class="form-control" value="{{ old('expire_date') }}" type="date" name="expire_date"
                                         required>
                                     @error('expire_date')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="image">Image</label>
+                                    <input class="form-control" value="{{ old('image') }}" type="file" name="image"
+                                        required>
+                                    @error('image')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

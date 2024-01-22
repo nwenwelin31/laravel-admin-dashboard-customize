@@ -5,8 +5,8 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <table class="table table-striped table-dark">
-                            <thead>
+                        <table class="table">
+                            <thead class="table-dark">
                                 <h3 class="text-center">Category List</h3>
                                 {{-- <div class="col-md-1 mb-3">
                                     <a href="{{ route('category.create') }}" class="btn btn-primary float-end"><i

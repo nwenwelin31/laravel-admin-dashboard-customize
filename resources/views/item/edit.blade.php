@@ -5,7 +5,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body shadow bnt btn-dark">
-                        <form action="{{ route('item.update',$item->id) }}" method="post">
+                        <form action="{{ route('item.update',$item->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-body">
@@ -44,6 +44,15 @@
                                     <input class="form-control @error('expire_date') is-invalid @enderror" value="{{ $item->expire_date }}" type="text" name="expire_date"
                                         required>
                                     @error('expire_date')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="image">Image</label><br>
+                                    <img src="{{ asset('/storage/gallery/' . $item->image) }}" style="width: 9ex"/>
+                                    <input class="form-control @error('image') is-invalid @enderror" value="{{ $item->image }}" type="file" name="image"
+                                        required>
+                                    @error('image')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

@@ -2,11 +2,11 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-start">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-body">
-                        <table class="table table-striped table-dark">
-                            <thead>
+                        <table class="table">
+                            <thead class="thead-dark">
                                 <h3 class="text-center">Item List</h3>
                                 @if (Session::has('success'))
                                     <div class="alert alert-success alert-dismissible" role="alert">
@@ -38,17 +38,20 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Category Type</th>
+                                    <th>Expire Date</th>
+                                    <th>Image</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($items as $item)
-                                    <tr>
+                                <tr>
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->category->name}}</td>
                                         <td>{{ $item->expire_date }}</td>
+                                        <td><img src="{{ asset('/storage/gallery/' . $item->image) }}" style="width: 9ex"/></td>
                                         <td>
                                             <a href="{{ route('item.edit',$item->id) }}" class="btn btn-outline-primary">
                                                 <i class="fa fa-edit"></i>

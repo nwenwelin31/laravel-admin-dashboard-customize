@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             //$table->foreignId('category_id');
             $table->unsignedBigInteger('category_id');
             $table->date('expire_date')->nullable();
+            $table->longText('image');//longtext
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories');
 
