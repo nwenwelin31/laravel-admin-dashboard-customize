@@ -8,11 +8,11 @@
                     <div class="col-8">
                         <div class="row">
                             @foreach ($items as $item)
-                                <div class="col-md-6 mb-4 d-flex justify-content-center">
-                                    <div class="card" style="width: 22rem;">
+                                <div class="col-md-6 mb-3 d-flex justify-content-center">
+                                    <div class="card" style="width: 20rem;">
                                         <img class="card-img-top img-fluid"
                                             src="{{ asset('/storage/gallery/' . $item->image) }}"
-                                            alt="{{ $item->name }} Image" style="width: 400px; height: 300px;" />
+                                            alt="" style="width: 350px; height: 200px;" />
                                         <div class="card-body">
                                             <p class="card-text">{{ $item->name }}</p>
                                             <div class="row">
